@@ -25,13 +25,14 @@ namespace api_auth.Services
             throw new NotImplementedException();
         }
 
-        public Usuario ObterPorId(string login)
+        public Usuario ObterPorLogin(string login)
         {
             return new Usuario(){
                 Nome = "Vitor", 
                 Login = "vitor.lassen",
-                Senha = "t+lL5RPpboxFzSPRYideWhLr3pEApCXE683X+k3NiXw=",
-                Permissao = "Aluno"
+                Senha = "pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=",
+                Permissao = "Professor",
+                Interno = true
             }; 
         }
     }

@@ -58,7 +58,9 @@ builder.Services.AddAuthentication(x =>
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(jwtChave)),
         ValidateIssuer = false,
-        ValidateAudience = false
+        ValidateAudience = false,
+        RequireExpirationTime = true
+
     };
 });
 
@@ -73,6 +75,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//falar para o .net usar autenticação e autorização -- precisa ser nessa exata ordem.
 app.UseAuthentication();
 app.UseAuthorization();
 

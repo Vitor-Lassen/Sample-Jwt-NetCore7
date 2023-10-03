@@ -23,7 +23,7 @@ namespace api_auth.Services
 
         public bool Autenticar(LoginDTO login)
         {
-            var usuario = _usuarioService.ObterPorId(login.Usuario);
+            var usuario = _usuarioService.ObterPorLogin(login.Usuario);
             if (usuario != null)
             {
                 return usuario.Senha == Criptografia.CriptografarSenha(login.Senha);
@@ -35,7 +35,7 @@ namespace api_auth.Services
 
         public string GerarToken(LoginDTO loginDTO)
         {
-            var usuario = _usuarioService.ObterPorId(loginDTO.Usuario);
+            var usuario = _usuarioService.ObterPorLogin(loginDTO.Usuario);
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_chaveJwt);
